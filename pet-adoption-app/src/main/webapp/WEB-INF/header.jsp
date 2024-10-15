@@ -17,44 +17,44 @@
 	</Style>
 </head>
 <body>
-	<!--  
-	<nav class="navbar navbar-expand-lg navbar-light header-homepage">
+	 
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top header-homepage">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="" alt="FilPaw"></a>
+            <a class="navbar-brand mb-0 fw-bold h1" href="#"><span class="fil">Fil</span><span class="paw">Paw</span><img src="/assets/images/logo.png"/></a>
+            
+            <!-- Toggle button for mobile nav -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <!-- navbar links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Adopt</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#adopt">Adopt</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link" href="#">Login</a></li>
+                    <li class="nav-item ms-2 d-none d-md-inline"><a class="btn btn-outline-primary" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">LOGIN</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    -->
-    <nav class="navbar header-homepage">
-        <div class="container-xxl">
-            <a class="navbar-brand" href="#"><img src="" alt="FilPaw"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Adopt</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	    <div class="modal-dialog modal-dialog-centered">
+	        <div class="modal-content">
+	            <div class="modal-body">
+	                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	                ...
+	            </div>
+	        </div>
+	    </div>
+	</div>
 	
 	<!-- JS -->
 	<script src="/assets/js/bootstrap.bundle.min.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

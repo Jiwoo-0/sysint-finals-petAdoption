@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-5 text-center text-md-start">
-                    <h1 class="title-primary">Looking for Adoption & Quality Items for your Pets?</h1>
+                    <h1 class="title-primary fw-bold">Looking for Adoption & Quality Items for your Pets?</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <a href="#" class="btn btn-lg btn-warning text-white">Learn More</a>
                 </div>
@@ -48,50 +48,98 @@
     	</div>
     </section>
     
-    <section class="text-center py-5">
-        <h1 class="title-primary fw-bold">ADOPT</h1>
-        <p class="lead">Pets you might want to adopt</p>
-    </section>
     
-    <section class="container mb-6">
-    	<div class="row justify-content-center">
-    		<div class="col-md-2">
-    			<div class="card pet-card">
-    				<img src="/assets/images/winter.jpg" class="card-img"/>
-    				<div class="card-img-overlay">
-    					<h5 class="card-title">Winter, 8</h5>
-                        <p class="card-text">Non-chalant pero laging gutom</p>
-                        <button class="btn btn-danger">X</button>
-                        <button class="btn btn-success">❤️</button>
+    <section id="adopt" class="bg-light">
+    	<div class="container-lg mt-3">
+    		<div class="text-center">
+    			<h2 class="fw-bold fc-secondary">BECOME A FUR-PARENT</h2>
+    			<p class="lead text-muted text-decoration-underline">Fur-babies that are looking for their future <span class="fw-bold text-primary">Fur-Parent!</span></p>
+    		</div>
+    		
+    		
+    		<div class="row row-cols-4 my-5 gy-4 align-items-center justify-content-center">
+    			<!-- pet 1 -->
+    			<div class="col-8 col-lg-4 col-xl-3">
+    				<div class="card text-center card-animate ">
+    					<img src="/assets/images/pets/winter.jpg" class="card-img-top" alt="pet image">
+    					<div class="card-body text-ceter py-4 h-200">
+    						<h4 class="card-title">Winter, 8</h4>
+    						<p class="lead card-subtitle">Non-chalant pero laging gutom</p>
+    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
+    					</div>
     				</div>
     			</div>
-    		</div>
-    		<div class="col-md-2">
-    			<div class="card pet-card">
-    				<img src="/assets/images/winter.jpg" class="card-img"/>
-    				<div class="card-img-overlay">
-    					<h5 class="card-title">Winter, 8</h5>
-                        <p class="card-text">Non-chalant pero laging gutom</p>
-                        <button class="btn btn-danger">X</button>
-                        <button class="btn btn-success">❤️</button>
+    			
+    			<!-- pet 2 -->
+    			<div class="col-8 col-lg-4 col-xl-3 h-100">
+    				<div class="card text-center card-animate ">
+    					<img src="/assets/images/pets/belle.jpg" class="card-img-top" alt="pet image">
+    					<div class="card-body text-ceter py-4">
+    						<h4 class="card-title">Belle, 7mo</h4>
+    						<p class="lead card-subtitle">Small but terrible</p>
+    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
+    					</div>
     				</div>
     			</div>
-    		</div>
-    		<div class="col-md-2">
-    			<div class="card pet-card">
-    				<img src="/assets/images/winter.jpg" class="card-img"/>
-    				<div class="card-img-overlay">
-    					<h5 class="card-title">Winter, 8</h5>
-                        <p class="card-text">Non-chalant pero laging gutom</p>
-                        <button class="btn btn-danger">X</button>
-                        <button class="btn btn-success">❤️</button>
+    			
+    			<!-- pet 3 -->
+    			<div class="col-8 col-lg-4 col-xl-3 h-100">
+    				<div class="card text-center card-animate">
+    					<img src="/assets/images/pets/kitkat.jpg" class="card-img-top" alt="pet image">
+    					<div class="card-body text-ceter py-4">
+    						<h4 class="card-title">Kitkat, 10</h4>
+    						<p class="lead card-subtitle">Very demure</p>
+    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
+    					</div>
+    				</div>
+    			</div>
+    			
+    			<!-- pet 4 -->
+    			<div class="col-8 col-lg-4 col-xl-3">
+    				<div class="card text-center card-animate">
+    					<img src="/assets/images/pets/oreo.jpg" class="card-img-top" alt="pet image">
+    					<div class="card-body text-ceter py-4">
+    						<h4 class="card-title">Oreo, 4</h4>
+    						<p class="lead card-subtitle">Beagle daw ako</p>
+    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
+    					</div>
+    				</div>
+    			</div>
+    			
+    			<!-- pet 5 -->
+    			<div class="col-8 col-lg-4 col-xl-3">
+    				<div class="card text-center card-animate">
+    					<img src="/assets/images/pets/potchi.jpg" class="card-img-top" alt="pet image">
+    					<div class="card-body text-ceter py-4">
+    						<h4 class="card-title">Potchi, 2</h4>
+    						<p class="lead card-subtitle">4-in-1 breed Shitzu na mahaba</p>
+    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
+    					</div>
+    				</div>
+    			</div>
+    			
+    			<!-- pet 5 -->
+    			<div class="col-8 col-lg-4 col-xl-3">
+    				<div class="card text-center card-animate">
+    					<img src="/assets/images/pets/icy.jpg" class="card-img-top" alt="pet image">
+    					<div class="card-body text-ceter py-4">
+    						<h4 class="card-title">Icy, 2</h4>
+    						<p class="lead card-subtitle">meow meow meow meow</p>
+    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
+    					</div>
     				</div>
     			</div>
     		</div>
     	</div>
     </section>
+    
+    
+	
+	<jsp:include page="footer.jsp"></jsp:include>
 	
 	<!-- JS -->
 	<script src="/assets/js/bootstrap.bundle.min.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

@@ -11,3 +11,36 @@
 .title-primary{
 	color: #3579ae;
 }
+
+.card-animate{
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+	cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card-animate:hover{
+    transform: scale(1.05);
+}
+
+.overlay{
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(transparent, #1c1c1c 58%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.card-img-top{
+	height: 300px;
+	object-fit: cover;
+}
+
+
+/* COLORS */
+
+.fc-secondary{
+	color: #ffb48c;
+}
+
