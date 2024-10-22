@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +35,9 @@
 	            <div class="col-lg-4 col-md-6 mb-4">
 	                <h5 class="text-uppercase">Quick Links</h5>
 	                <ul class="list-unstyled">
-	                    <li><a href="#" class="text-white">About</a></li>
-	                    <li><a href="#" class="text-white">Adopt a Pet</a></li>
-	                    <li><a href="#" class="text-white">Contact Us</a></li>
+	                    <li><a href="/about-us" class="text-white">About us</a></li>
+	                    <li><a href="/home#adopt" class="text-white">Adopt a Pet</a></li>
+	                    <li><a href="/home/contact-us" class="text-white">Contact Us</a></li>
 	                    <li><a href="#" class="text-white">FAQ</a></li>
 	                </ul>
 	            </div>

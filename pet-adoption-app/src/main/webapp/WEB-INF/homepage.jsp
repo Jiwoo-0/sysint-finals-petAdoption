@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +54,7 @@
     	<div class="container-lg mt-3">
     		<div class="text-center">
     			<h2 class="fw-bold fc-secondary">BECOME A FUR-PARENT</h2>
-    			<p class="lead text-muted text-decoration-underline">Fur-babies that are looking for their future <span class="fw-bold text-primary">Fur-Parent!</span></p>
+    			<p class="lead text-muted">Fur-babies that are looking for their future <span class="fw-bold fc-primary">Fur-Parent!</span></p>
     		</div>
     		
     		
@@ -62,21 +63,21 @@
     			<div class="col-8 col-lg-4 col-xl-3">
     				<div class="card text-center card-animate ">
     					<img src="/assets/images/pets/winter.jpg" class="card-img-top" alt="pet image">
-    					<div class="card-body text-ceter py-4 h-200">
+    					<div class="card-body text-ceter py-4">
     						<h4 class="card-title">Winter, 8</h4>
-    						<p class="lead card-subtitle">Non-chalant pero laging gutom</p>
+    						<p class="lead card-subtitle text-truncate">Non-chalant pero laging gutom</p>
     						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
     					</div>
     				</div>
     			</div>
     			
     			<!-- pet 2 -->
-    			<div class="col-8 col-lg-4 col-xl-3 h-100">
+    			<div class="col-8 col-lg-4 col-xl-3">
     				<div class="card text-center card-animate ">
     					<img src="/assets/images/pets/belle.jpg" class="card-img-top" alt="pet image">
     					<div class="card-body text-ceter py-4">
     						<h4 class="card-title">Belle, 7mo</h4>
-    						<p class="lead card-subtitle">Small but terrible</p>
+    						<p class="lead card-subtitle text-truncate">Small but terrible</p>
     						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
     					</div>
     				</div>
@@ -88,7 +89,7 @@
     					<img src="/assets/images/pets/kitkat.jpg" class="card-img-top" alt="pet image">
     					<div class="card-body text-ceter py-4">
     						<h4 class="card-title">Kitkat, 10</h4>
-    						<p class="lead card-subtitle">Very demure</p>
+    						<p class="lead card-subtitle text-truncate">Very demure</p>
     						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
     					</div>
     				</div>
@@ -100,7 +101,7 @@
     					<img src="/assets/images/pets/oreo.jpg" class="card-img-top" alt="pet image">
     					<div class="card-body text-ceter py-4">
     						<h4 class="card-title">Oreo, 4</h4>
-    						<p class="lead card-subtitle">Beagle daw ako</p>
+    						<p class="lead card-subtitle text-truncate">Beagle daw ako</p>
     						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
     					</div>
     				</div>
@@ -112,7 +113,7 @@
     					<img src="/assets/images/pets/potchi.jpg" class="card-img-top" alt="pet image">
     					<div class="card-body text-ceter py-4">
     						<h4 class="card-title">Potchi, 2</h4>
-    						<p class="lead card-subtitle">4-in-1 breed Shitzu na mahaba</p>
+    						<p class="lead card-subtitle text-truncate">4-in-1 breed Shitzu na mahaba</p>
     						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
     					</div>
     				</div>
@@ -124,7 +125,7 @@
     					<img src="/assets/images/pets/icy.jpg" class="card-img-top" alt="pet image">
     					<div class="card-body text-ceter py-4">
     						<h4 class="card-title">Icy, 2</h4>
-    						<p class="lead card-subtitle">meow meow meow meow</p>
+    						<p class="lead card-subtitle text-truncate">meow meow meow meow</p>
     						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
     					</div>
     				</div>
@@ -140,6 +141,5 @@
 	<!-- JS -->
 	<script src="/assets/js/bootstrap.bundle.min.js"></script>
 	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

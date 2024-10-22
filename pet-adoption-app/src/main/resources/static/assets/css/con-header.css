@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 .header-color{
-	background-color: #d8ecac;
+	/*background-color: #98acbc;*/
+	background-color: pink;
 }
 
 .logo-size{
@@ -10,7 +11,7 @@
 }
 
 .nav-link:hover{
-	color: #2596be;
+	color: white;
 	transition: background-color 0.3s ease;
 }
 

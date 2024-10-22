@@ -38,9 +38,27 @@
 }
 
 
+/* ICONS */
+ion-icon .icon-home{
+	color: #98acbc;
+}
+
+
 /* COLORS */
+
+.fc-primary{
+	color: #387cac;
+}
+
+.fc-primary1{
+	color: #98acbc;
+}
 
 .fc-secondary{
 	color: #ffb48c;
+}
+
+.bg-contact{
+	background-color: #98acbc;
 }
 

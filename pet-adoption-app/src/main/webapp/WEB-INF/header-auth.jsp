@@ -18,7 +18,7 @@
 </head>
 <body>
 	 
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top header-color">
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand mb-0 fw-bold h1" href="#"><span class="fil">Fil</span><span class="paw">Paw</span><img src="/assets/images/logo.png"/></a>
             
@@ -34,14 +34,17 @@
                     <li class="nav-item"><a class="nav-link" href="/home#adopt">Adopt</a></li>
                     <li class="nav-item"><a class="nav-link" href="/home/about-us">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="/home/contact-us">Contact Us</a></li>
-                    <li class="nav-item d-md-none"><a class="nav-link" href="#">Login</a></li>
-                    <li class="nav-item ms-2 d-none d-md-inline"><a class="btn btn-outline-primary" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">LOGIN</a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link" href="#">Profile</a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link" href="#">Logout</a></li>
+                    <li class="nav-item ms-2 d-none d-md-inline"><a class="btn btn-outline-primary" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">Profile</a></li>
+                    <li class="nav-item ms-2 d-none d-md-inline"><a class="btn btn-outline-primary" href="#">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     
-    <jsp:include page="loginModal.jsp"></jsp:include>
+    <!-- <jsp:include page="loginModal.jsp"></jsp:include>  -->
+    
 	
 	<!-- JS -->
 	<script src="/assets/js/bootstrap.bundle.min.js"></script>
