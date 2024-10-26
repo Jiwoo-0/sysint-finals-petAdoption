@@ -10,17 +10,22 @@
 	
 	<!-- CSS -->
 	<Link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
-	<Link rel="stylesheet" href="/assets/css/con-header.css"/>
+	<Link rel="stylesheet" href="/assets/css/header.css"/>
 	<Link rel="stylesheet" href="/assets/css/body.css"/>
 	<link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 	<Style>
-		Section{
-			padding: 60px 0 ;
+		.header-color{
+			background-color: #98acbc;
 		}
 	</Style>
 </head>
 <body class="bg-contact">
-	<jsp:include page="header.jsp"></jsp:include>
+	<c:if test="${loggedUser == null}">
+		<jsp:include page="header.jsp"></jsp:include>
+	</c:if>
+	<c:if test="${loggedUser !=  null}">
+		<jsp:include page="header-auth.jsp"></jsp:include>
+	</c:if>
 	
 	<section class="contact-section bg-contact mt-5">
 		<div class="container text-center">

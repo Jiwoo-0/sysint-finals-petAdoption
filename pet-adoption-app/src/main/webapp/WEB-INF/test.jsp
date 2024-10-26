@@ -45,9 +45,18 @@
 	  </div>
 	  <div class="card-body">
 	    <h5 class="card-title">Registered Pets here</h5>
-	    
+	    <c:forEach items="${pets }" var="pet">
+			<div>
+			
+				<br/>
+				<p>${pet.getPet_name()}</p>
+				<hr/>
+			</div>
+		</c:forEach>
 	  </div>
 	</div>
+	
+	
 	
 	
 	<!-- JS -->

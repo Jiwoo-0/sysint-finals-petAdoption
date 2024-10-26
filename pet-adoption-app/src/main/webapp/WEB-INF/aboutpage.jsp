@@ -15,7 +15,12 @@
 	
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<c:if test="${loggedUser == null}">
+		<jsp:include page="header.jsp"></jsp:include>
+	</c:if>
+	<c:if test="${loggedUser !=  null}">
+		<jsp:include page="header-auth.jsp"></jsp:include>
+	</c:if>
 	
 	
 	<jsp:include page="footer.jsp"></jsp:include>

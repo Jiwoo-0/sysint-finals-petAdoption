@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.home-hero-section{
+.hero-section{
 	background-color: #d8ecac;
 }
 
@@ -35,6 +35,15 @@
 .card-img-top{
 	height: 300px;
 	object-fit: cover;
+}
+
+section{
+	padding: 60px 0;
+}
+
+/* DASHBOARD */
+.breed-section section{
+	padding: 30px 0;
 }
 
 

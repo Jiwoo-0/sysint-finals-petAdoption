@@ -1,8 +1,26 @@
 package com.example.pet_adoption_app.models;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "user_tbl")
 public class Users {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long user_id;
+	
 	private String user_first_name;
 	private String user_middle_name;
 	private String user_last_name;
@@ -10,6 +28,23 @@ public class Users {
 	private String user_password;
 	private String user_phone_number;
 	private String user_address;
+	
+	@Column(updatable=false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createdAt;
+	
+	@DateTimeFormat(pattern = "yyy-MM-dd")
+	private Date updatedAt;
+	
+	@PrePersist
+	protected void newDate() {
+		this.createdAt=new Date();
+	}
+	
+	@PreUpdate
+	protected void updatedDate() {
+		this.updatedAt = new Date();
+	}
 	
 	public Users() {
 		super();

@@ -12,16 +12,16 @@
 	<Link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
 	<Link rel="stylesheet" href="/assets/css/header.css"/>
 	<Link rel="stylesheet" href="/assets/css/body.css"/>
-	<Style>
-		section{
-			padding: 60px 0 ;
-		}
-	</Style>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<c:if test="${loggedUser == null}">
+		<jsp:include page="header.jsp"></jsp:include>
+	</c:if>
+	<c:if test="${loggedUser !=  null}">
+		<jsp:include page="header-auth.jsp"></jsp:include>
+	</c:if>
 	
-	<section class="home-hero-section">
+	<section class="hero-section">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-5 text-center text-md-start">
