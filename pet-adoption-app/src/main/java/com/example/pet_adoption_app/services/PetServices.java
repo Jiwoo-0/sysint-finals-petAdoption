@@ -25,4 +25,12 @@ public class PetServices {
 	public void deletePet(Long pet_id) {
 		pRepo.deleteById(pet_id);
 	}
+	
+	public Pets updatePet(Pets updatePet) {
+		return pRepo.save(updatePet);
+	}
+	
+	public Pets getId(Long pet_id) {
+		return pRepo.findById(pet_id).orElse(null);
+	}
 }

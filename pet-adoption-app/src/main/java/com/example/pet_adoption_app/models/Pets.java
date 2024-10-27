@@ -21,6 +21,7 @@ public class Pets {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long pet_id;
 	private String pet_name;
+	private String pet_img;
 	private String breed;
 	private int pet_age;
 	private String pet_gender;
@@ -52,11 +53,12 @@ public class Pets {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pets(long pet_id, String pet_name, String breed, int pet_age, String pet_gender, String pet_weight,
+	public Pets(long pet_id, String pet_name, String pet_img, String breed, int pet_age, String pet_gender, String pet_weight,
 			String pet_height, String neutured_status, String medical_history, String description) {
 		super();
 		this.pet_id = pet_id;
 		this.pet_name = pet_name;
+		this.pet_img = pet_img;
 		this.breed = breed;
 		this.pet_age = pet_age;
 		this.pet_gender = pet_gender;
@@ -81,6 +83,14 @@ public class Pets {
 
 	public void setPet_name(String pet_name) {
 		this.pet_name = pet_name;
+	}
+
+	public String getPet_img() {
+		return pet_img;
+	}
+
+	public void setPet_img(String pet_img) {
+		this.pet_img = pet_img;
 	}
 
 	public String getBreed() {

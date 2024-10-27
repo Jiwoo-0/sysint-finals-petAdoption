@@ -35,7 +35,7 @@
 	    	<div class="modal-content">
 	      		<div class="modal-body">
 	        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	           		<form:form action="/pet/register" method="post" class="row g-3 p-3" modelAttribute="newPet">
+	           		<form:form action="/pet/register" method="post" class="row g-3 p-3" modelAttribute="newPet" enctype="multipart/form-data">
 	           			<p class="fw-bold h1 text-center my-3">Add a pet</p>
 	                	<div class="col-md-6">
 	                		<form:label path="pet_name">Pet Name: </form:label>
@@ -82,6 +82,13 @@
 								  	<label class="form-check-label" for="inlineRadio2">Female</label>
 								</div>
 	                		</div>
+	                	</div>
+	                	<div class="col-md-12">
+	                		<form:label path="pet_img">Upload Pet Image</form:label>
+	                		<div class="input-group felx-nowrap">
+								<span class="input-group-text">URL</span>
+								<form:input path="pet_img" type="text" class="form-control"/>
+							</div>
 	                	</div>
 	                	<div class="col-md-8">
 	                		<form:label path="neutured_status">Is this pet neutered?</form:label>

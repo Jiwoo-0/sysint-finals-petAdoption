@@ -14,7 +14,6 @@
 
 .card-animate{
 	box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
-	cursor: pointer;
     transition: all 0.3s;
 }
 
@@ -33,6 +32,11 @@
 }
 
 .card-img-top{
+	height: 300px;
+	object-fit: cover;
+}
+
+.card-img-modal{
 	height: 300px;
 	object-fit: cover;
 }
@@ -65,6 +69,14 @@ ion-icon .icon-home{
 
 .fc-secondary{
 	color: #ffb48c;
+}
+
+.bg-primary{
+	background-color: #387cac;
+}
+
+.bg-secondary{
+	background-color: #98acbc;
 }
 
 .bg-contact{

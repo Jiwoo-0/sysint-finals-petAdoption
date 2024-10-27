@@ -65,87 +65,69 @@
 		</div>
 	</section>
 	
-	<section id="pet-section">
-	
+	<section class="pet-section bg-contact">
+		<div class="container-lg">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-11">
+					<h2 class="text-white title-primary fw-bold"><span class="text-decoration-underline">PETS YOU MIGHT WANT TO AD</span>OPT</h2>
+				</div>
+		    </div>
+			<div class="row row-cols-4 my-5 gy-4 align-items-center justify-content-center">
+				<c:forEach items="${pets }" var="pet">
+			    	<div class="col-8 col-lg-4 col-xl-3">
+			    		<div class="card text-center card-animate ">
+			    			<img src="${pet.getPet_img() }" class="card-img-top" alt="pet image">
+			    			<div class="card-body text-ceter py-4">
+			    				<h4 class="card-title">${pet.getPet_name() }, ${pet.getPet_age()}</h4>
+			    				<p class="lead card-subtitle text-truncate">${pet.getDescription() }</p>
+			    				<a class="btn btn-outline-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#adoptFormModal${pet.getPet_id()}">Adopt this pet</a>
+			    			</div>
+			    		</div>
+			    	</div>
+				</c:forEach>
+			</div>
+		</div>
 	</section>
 	
-	<div class="row row-cols-4 my-5 gy-4 align-items-center justify-content-center">
-    			<!-- pet 1 -->
-    			<div class="col-8 col-lg-4 col-xl-3">
-    				<div class="card text-center card-animate ">
-    					<img src="/assets/images/pets/winter.jpg" class="card-img-top" alt="pet image">
-    					<div class="card-body text-ceter py-4">
-    						<h4 class="card-title">Winter, 8</h4>
-    						<p class="lead card-subtitle text-truncate">Non-chalant pero laging gutom</p>
-    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
-    					</div>
-    				</div>
-    			</div>
-    			
-    			<!-- pet 2 -->
-    			<div class="col-8 col-lg-4 col-xl-3">
-    				<div class="card text-center card-animate ">
-    					<img src="/assets/images/pets/belle.jpg" class="card-img-top" alt="pet image">
-    					<div class="card-body text-ceter py-4">
-    						<h4 class="card-title">Belle, 7mo</h4>
-    						<p class="lead card-subtitle text-truncate">Small but terrible</p>
-    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
-    					</div>
-    				</div>
-    			</div>
-    			
-    			<!-- pet 3 -->
-    			<div class="col-8 col-lg-4 col-xl-3 h-100">
-    				<div class="card text-center card-animate">
-    					<img src="/assets/images/pets/kitkat.jpg" class="card-img-top" alt="pet image">
-    					<div class="card-body text-ceter py-4">
-    						<h4 class="card-title">Kitkat, 10</h4>
-    						<p class="lead card-subtitle text-truncate">Very demure</p>
-    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
-    					</div>
-    				</div>
-    			</div>
-    			
-    			<!-- pet 4 -->
-    			<div class="col-8 col-lg-4 col-xl-3">
-    				<div class="card text-center card-animate">
-    					<img src="/assets/images/pets/oreo.jpg" class="card-img-top" alt="pet image">
-    					<div class="card-body text-ceter py-4">
-    						<h4 class="card-title">Oreo, 4</h4>
-    						<p class="lead card-subtitle text-truncate">Beagle daw ako</p>
-    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
-    					</div>
-    				</div>
-    			</div>
-    			
-    			<!-- pet 5 -->
-    			<div class="col-8 col-lg-4 col-xl-3">
-    				<div class="card text-center card-animate">
-    					<img src="/assets/images/pets/potchi.jpg" class="card-img-top" alt="pet image">
-    					<div class="card-body text-ceter py-4">
-    						<h4 class="card-title">Potchi, 2</h4>
-    						<p class="lead card-subtitle text-truncate">4-in-1 breed Shitzu na mahaba</p>
-    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
-    					</div>
-    				</div>
-    			</div>
-    			
-    			<!-- pet 5 -->
-    			<div class="col-8 col-lg-4 col-xl-3">
-    				<div class="card text-center card-animate">
-    					<img src="/assets/images/pets/icy.jpg" class="card-img-top" alt="pet image">
-    					<div class="card-body text-ceter py-4">
-    						<h4 class="card-title">Icy, 2</h4>
-    						<p class="lead card-subtitle text-truncate">meow meow meow meow</p>
-    						<a class="btn btn-outline-primary btn-lg mt-3">Adopt this pet</a>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
+	<c:forEach items="${pets }" var="pet">
+		<div class="modal fade" id="adoptFormModal${pet.getPet_id()}" aria-hidden="true" tabindex="-1">
+			<div class="modal-dialog modal-xl modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						<div class="row text-center g-3 p-3">
+							<div class="col-md-6 justify-content-center align-items-center">
+								<img src="${pet.getPet_img() }" class="img-fluid card-img-modal rounded shadow"/>
+								<h2 class="text-center mt-3">${pet.getPet_name() }</h2>
+								<p class="card-subtitle lead">${pet.getDescription() }</p>
+							</div>
+							<div class="col-md-6">
+								<form:form action="/adopt/pet" method="post" modelAttribute="adoptPet" class="row g-3 p-3">
+									<form:input path="user_id" type="hidden" value="${loggedUser.getUser_id()}"/>
+									<form:input path="pet_id" type="hidden" value="${pet.getPet_id()}"/>
+									<form:input path="application_status" type="hidden" value="pending"/>
+									<div class="text-start p-1">
+										<h4 class="fw-bold text-center mb-2">Details</h4>	
+										<p>Breed: ${pet.breed }</p>
+										<p>Age: ${pet.pet_age }</p>
+										<p>Gender: ${pet.pet_gender }</p>
+										<p>Weight: ${pet.pet_weight}</p>
+										<p>Height: ${pet.pet_height}</p>
+										<p>Is neutered: ${pet.neutured_status}</p>
+										<p>Medical History: ${pet.medical_history}</p>
+									</div>
+									<button type="submit" class="btn btn-primary btn-lg">Adopt this pet</button>
+								</form:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</c:forEach>
 	
-	
-	
-	
+	<jsp:include page="footer.jsp"></jsp:include>
 	<!-- JS -->
 	<script src="/assets/js/bootstrap.bundle.min.js"></script>
 	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

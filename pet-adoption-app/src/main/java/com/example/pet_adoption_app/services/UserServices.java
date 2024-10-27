@@ -25,4 +25,8 @@ public class UserServices {
 	public void deleteAccount(Long id) {
 		uRepo.deleteById(id);
 	}
+	
+	public Users updatedAccount(Users updatedAcc) {
+		return uRepo.save(updatedAcc);
+	}
 }
