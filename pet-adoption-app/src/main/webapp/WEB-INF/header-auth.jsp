@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="main-nav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/home#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/home#adopt">Adopt</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dashboard">Adopt</a></li>
                     <li class="nav-item"><a class="nav-link" href="/home/about-us">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="/home/contact-us">Contact Us</a></li>
                     <li class="nav-item d-md-none"><a class="nav-link" href="#">Profile</a></li>

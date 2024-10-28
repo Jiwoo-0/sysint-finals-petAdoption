@@ -91,14 +91,46 @@
 							    <td>${pet.neutured_status}</td>
 							    <td>${pet.medical_history}</td>
 							    <td>${pet.description}</td>
-					<!--  		<td><a href="" class="btn btn-warning" data-bs-target="#editPetModal${pet.pet_id }" data-bs-toggle="modal">Edit</a> <a href="/pet/delete/${pet.pet_id }" class="btn btn-danger">Delete</a></td>-->
-							    <td><a href="/pet/update/${pet.pet_id }" class="btn btn-warning">Edit</a> <a href="/pet/delete/${pet.pet_id }" class="btn btn-danger">Delete</a></td>
+								<td><a href="" class="btn btn-warning" data-bs-target="#editPetModal${pet.pet_id }" data-bs-toggle="modal">Edit</a> <a href="/pet/delete/${pet.pet_id }" class="btn btn-danger">Delete</a></td> 
+							    <!-- <td><a href="/pet/update/${pet.pet_id }" class="btn btn-warning">Edit</a> <a href="/pet/delete/${pet.pet_id }" class="btn btn-danger">Delete</a></td>-->
 						    </tr>
 				  		</c:forEach>		    
 					</tbody>
 		    	</table>
 			  	</div>
 			</div>
+    	</div>
+    </section>
+    
+    <section class="application-section">
+    	<div class="container">
+    		<div>
+    			<div class="card" >
+				  	<div class="card-body table-responsive">
+					    <h5 class="card-title">Application list</h5>
+					    <table class="table table-sm table-striped table-hover ">
+			    		<thead>
+							<tr>
+								<th scope="col">#</th>
+							    <th scope="col">user_id</th>
+							    <th scope="col">Breed</th>
+							    <th scope="col">Age</th>
+							    <th scope="col">Gender</th>
+							    <th scope="col">Weight</th>
+							    <th scope="col">Height</th>
+							    <th scope="col">Neutered Status</th>
+							    <th scope="col">Medical History</th>
+							    <th scope="col">Description</th>
+							    <th scope="col">Action</th>
+						   </tr>
+						</thead>
+						<tbody>
+					  		   
+						</tbody>
+			    	</table>
+				  	</div>
+				</div>
+    		</div>
     	</div>
     </section>
     
@@ -237,13 +269,12 @@
 		                	<div class="col-md-12">
 		                		<form:label path="medical_history">Medical History:</form:label>
 		                		<form:errors path="medical_history"></form:errors>
-		                		<form:textarea path="medical_history" class="form-control" rows="3" value="${pet.medical_history }"/>
+		                		<textarea class="form-control" name="medical_history" rows="3" > ${pet.medical_history }</textarea>
 		                	</div>
 		                	<div class="col-md-12">
 		                		<form:label path="description">Description:</form:label>
 		                		<form:errors path="description"></form:errors>
-		                		<form:textarea path="description" class="form-control" type="text" value="${pet.description }" rows="3"/>
-		                		<form:input path="description" type="text" value="${pet.description }"/>
+		                		<textarea class="form-control" name="description" rows="3">${pet.description }</textarea>
 		                	</div>
 		                	<div class="d-grid gap-2">
 								<input type="submit" value="Register Pet" class="btn btn-primary btn-lg"/>

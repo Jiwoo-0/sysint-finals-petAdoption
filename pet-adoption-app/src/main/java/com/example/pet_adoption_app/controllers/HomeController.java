@@ -58,7 +58,6 @@ public class HomeController {
 	@GetMapping("/home")
 	public String Homepage(Model mv,
 						   HttpSession currentSession) {
-		
 		initForms(mv, currentSession);
 		
 		return "homepage";
@@ -72,12 +71,13 @@ public class HomeController {
 		
 		if(email.contains("@admin")) {
 			for(int i = 0; i<adService.getAll().size(); i++) {
+				System.out.println(adService.getAll().get(i).getAdmin_email());
 				if(!adService.getAll().get(i).getAdmin_email().equals(email)&&
 				   !adService.getAll().get(i).getAdmin_password().equals(password)) {
 					System.out.println("di siya pumasok");
 				} else {
 					System.out.println("pumasok si admin");
-					currentSession.setAttribute("activeAdmin", uService.getAll().get(i));
+					currentSession.setAttribute("activeAdmin", adService.getAll().get(i));
 					return "redirect:/admin/dashboard";
 				}
 			}
@@ -85,13 +85,29 @@ public class HomeController {
 		
 		for(int i = 0; i<uService.getAll().size(); i++) {
 			if(uService.getAll().get(i).getUser_email().equals(email)&&
-			   uService.getAll().get(i).getUser_password().equals(password)) {
+					uService.getAll().get(i).getUser_password().equals(password)) {
 				currentSession.setAttribute("activeUser", uService.getAll().get(i));
 				return "redirect:/dashboard";
 			}
 		}
 		
-		return "homepage";
+		
+		return "redirect:/home";
+	}
+	
+	@GetMapping("/register/application")
+	public String applicationForm(Model mv,
+								  HttpSession currentSession) {
+		
+		initForms(mv, currentSession);
+		return "application";
+	}
+	
+	@PostMapping("/register/application")
+	public String postApplicationForm(@ModelAttribute Applications userApplication) {
+		
+		
+		return "redirect:/dashboard";
 	}
 	
 	@GetMapping("/dashboard")
@@ -129,7 +145,7 @@ public class HomeController {
 		
 		uService.createAccount(newAcc);
 		
-		return "redirect:/home";
+		return "redirect:/register/application";
 	}
 	
 	@GetMapping("/logout")
@@ -197,24 +213,18 @@ public class HomeController {
 	}
 	
 	@PostMapping("/pet/update")
-	public String updatePet(@ModelAttribute Pets updatePet) {
+	public String updatePet(@ModelAttribute Pets updatePet,
+							@RequestParam String medical_history,
+							@RequestParam String description) {
 		
+		updatePet.setMedical_history(medical_history);
+		updatePet.setDescription(description);
 		pService.updatePet(updatePet);
 		
 		return "redirect:/admin/dashboard";
 	}
 	
-	@GetMapping("/pet/update/{pet_id}")
-	public String updatePetPage(Model mv,
-								@PathVariable Long pet_id) {
-		
-		Pets updatedPet = pService.getId(pet_id);
-		mv.addAttribute("updatePet",updatedPet);
-		
-		return "editPetPage";
-	}
-	
-//	------------------------TEST PAGE------------------------------------
+//	------------------------TEST PAGE-------------------------------------
 	
 	@GetMapping("/test")
 	public String testPage(Model mv) {
@@ -222,6 +232,11 @@ public class HomeController {
 		mv.addAttribute("users",uService.getAll());
 		mv.addAttribute("pets", pService.getAll());
 		return "test";
+	}
+	
+	@GetMapping("/test2")
+	public String test2Page(Model mv) {
+		return "test2";
 	}
 	
 	
