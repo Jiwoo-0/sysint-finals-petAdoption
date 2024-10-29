@@ -1,6 +1,7 @@
 package com.example.pet_adoption_app.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,11 +60,36 @@ public class HomeController {
 		mv.addAttribute("adoptPet", new Applications());
 		mv.addAttribute("newAdmin", new Admin());
 		mv.addAttribute("newUserDetails", new UserDetails());
+		mv.addAttribute("allPets", pService.getAll());
+		mv.addAttribute("currentApplication", aService.getAll());
+		mv.addAttribute("pets", pService.getAll());
 		
 		if(adService.getAll().isEmpty()) {
 			Admin admin01 = new Admin(1,"admin01","default","admin1@admin","001");
 			adService.createAdmin(admin01);
 		}
+		
+		if(pService.getAll().isEmpty()) {
+			Pets pet1 = new Pets(1,"Winter","/assets/images/pets/winter.jpg",
+					"cat",8,"male","5kg","30","no","n/a","Non-chalant pero laging gutom");
+			Pets pet2 = new Pets(2,"Belle","/assets/images/pets/belle.jpg",
+					"cat",1,"female","4kg","20","no","has medical history","very cute, likes to bite");
+			Pets pet3 = new Pets(3,"Potchi","/assets/images/pets/potchi.jpg",
+					"dog",2,"male","8kg","50","yes","n/a","shih tzu na makulit");
+			Pets pet4 = new Pets(4,"icy","/assets/images/pets/icy.jpg",
+					"cat",5,"male","9kg","30","no","has medical history ","meow meow meow meow");
+			pService.createPet(pet1);
+			pService.createPet(pet2);
+			pService.createPet(pet3);
+			pService.createPet(pet4);
+		}
+	}
+	
+	@GetMapping("/")
+	public String index(Model mv,
+			   			HttpSession currentSession) {
+		initForms(mv, currentSession);
+		return "redirect:/home";
 	}
 	
 	@GetMapping("/home")
@@ -162,6 +188,13 @@ public class HomeController {
 								   BindingResult result,
 								   RedirectAttributes error) {
 		
+		for(int i = 0; i<uService.getAll().size(); i++) {
+			if(uService.getAll().get(i).getUser_email().equals(newAcc.getUser_email())) {
+				error.addFlashAttribute("error", "Email already exists");
+				return "redirect:/home";
+			}
+		}
+		
 		temp.clear();
 		temp.add(newAcc);
 		System.out.println(temp.get(0).getUser_first_name());
@@ -232,6 +265,17 @@ public class HomeController {
 		uService.updatedAccount(updateAcc);
 		
 		return "redirect:/admin/dashboard";
+	}
+	
+	@PostMapping("/dashboard/account/update")
+	public String updateDashboardUser(@ModelAttribute Users loggedUser,
+									 HttpSession currentSession) {
+		
+		uService.updatedAccount(loggedUser);
+		currentSession.removeAttribute("activeUser");
+		currentSession.setAttribute("activeUser", loggedUser);
+		
+		return "redirect:/dashboard";
 	}
 	
 	@PostMapping("/pet/update")

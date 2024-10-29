@@ -19,7 +19,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="header-auth.jsp"></jsp:include>
+	<jsp:include page="header-admin.jsp"></jsp:include>
 	
 	<section class="application-section mt-5 ">
 		<div class="container">

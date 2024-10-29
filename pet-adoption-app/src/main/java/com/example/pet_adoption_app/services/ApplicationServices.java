@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.pet_adoption_app.models.Applications;
+import com.example.pet_adoption_app.models.Users;
 import com.example.pet_adoption_app.repositories.ApplicationRepository;
 
 @Service

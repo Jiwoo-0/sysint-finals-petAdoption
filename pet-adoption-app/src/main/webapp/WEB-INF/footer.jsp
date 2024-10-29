@@ -22,7 +22,7 @@
 	        <div class="col-lg-4 col-md-6 mb-4">
 				<h5 class="text-uppercase">Quick Links</h5>
 				<ul class="list-unstyled">
-		       		<li><a href="/about-us" class="text-white">About us</a></li>
+		       		<li><a href="/home/about-us" class="text-white">About us</a></li>
 					<li><a href="/home#adopt" class="text-white">Adopt a Pet</a></li>
 					<li><a href="/home/contact-us" class="text-white">Contact Us</a></li>
 	                <li><a href="#" class="text-white">FAQ</a></li>

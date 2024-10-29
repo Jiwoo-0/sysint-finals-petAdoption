@@ -63,17 +63,17 @@
 				<div class="col-md-8">
 					<form:label path="user_first_name">First Name:</form:label>
 					<form:errors path="user_first_name"/>
-					<form:input path="user_first_name" type="text" class="form-control" name="fname"/>
+					<form:input path="user_first_name"  required = "required" type="text" class="form-control" name="fname"/>
 				</div>
 				<div class="col-md-4">
 					<form:label path="user_middle_name">Middle Name:</form:label>
 					<form:errors path="user_middle_name"/>
-					<form:input path="user_middle_name" type="text" class="form-control" name="mname"/>
+					<form:input path="user_middle_name"  required = "required" type="text" class="form-control" name="mname"/>
 				</div>
 				<div class="col-md-6">
 					<form:label path="user_last_name">Last Name:</form:label>
 					<form:errors path="user_last_name"/>
-					<form:input path="user_last_name" type="text" class="form-control" name="lname"/>
+					<form:input path="user_last_name"  required = "required" type="text" class="form-control" name="lname"/>
 				</div>
 				<div class="col-md-6">
 					<form:label path="user_phone_number">Phone Number:</form:label>
@@ -86,17 +86,17 @@
 				<div class="col-md-6">
 					<form:label path="user_email">Email:</form:label>
 					<form:errors path="user_email"/>
-					<form:input path="user_email" type="email" class="form-control" name="email"/>
+					<form:input path="user_email" required = "required" type="email" class="form-control" name="email"/>
 				</div>
 				<div class="col-md-6">
 					<form:label path="user_password">Password:</form:label>
 					<form:errors path="user_password"/>
-					<form:input path="user_password" type="password" class="form-control" name="pw"/>
+					<form:input path="user_password" required = "required"  minlength="8" type="password" class="form-control" name="pw"/>
 				</div>
 				<div class="col-md-12">
 					<form:label path="user_address">Address:</form:label>
 					<form:errors path="user_address"/>
-					<form:input path="user_address" type="text" class="form-control" name="address"/>
+					<form:input path="user_address" required = "required" type="text" class="form-control" name="address"/>
 				</div>
 				<div class="d-grid gap-2">
 					<input type="submit" value="Register" class="btn btn-primary btn-lg"/>

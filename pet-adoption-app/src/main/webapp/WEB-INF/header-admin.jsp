@@ -21,7 +21,7 @@
                     <li class="nav-item"><a class="nav-link" href="/home/about-us">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="/home/contact-us">Contact Us</a></li>
                     <li class="nav-item d-md-none"><a class="nav-link" href="#">Profile</a></li>
-                    <li class="nav-item ms-2 d-none d-md-inline"><a class="btn btn-outline-primary align-items-center" href="" data-bs-toggle="modal" data-bs-target="#applicationStatusModal">Application Status</a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link" href="#">Logout</a></li>
                     <li class="nav-item ms-2 d-none d-md-inline"><a class="btn btn-outline-primary align-items-center" href="" data-bs-toggle="modal" data-bs-target="#createPetModal"><ion-icon name="add-circle-outline" class="me-2"></ion-icon>Add A Pet</a></li>
                     <li class="nav-item ms-2 d-none d-md-inline"><a class="btn btn-outline-primary" href="" data-bs-toggle="modal" data-bs-target="#profileModal">Profile</a></li>
                     <li class="nav-item ms-2 d-none d-md-inline"><a class="btn btn-outline-primary" href="/logout">Logout</a></li>
@@ -122,96 +122,3 @@
 	    	</div>
 	  	</div>
 	</div>
-	
-	<div class="modal fade" id="profileModal" aria-hidden="true" aria-labelledby="profileModal" tabindex="-1">
-	  <div class="modal-dialog modal-dialog-centered">
-	    <div class="modal-content">
-	      <div class="modal-body">
-	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	            <p class="fw-bold h1 text-center my-3">Profile</p>
-	           	<form:form action="/dashboard/account/update" method="post" modelAttribute="loggedUser" class="row g-3 p-3">
-	           	<form:input path="user_id" type="hidden"/>
-				<div class="col-md-8">
-					<form:label path="user_first_name">First Name:</form:label>
-					<form:errors path="user_first_name"/>
-					<form:input path="user_first_name" type="text" class="form-control" name="fname"/>
-				</div>
-				<div class="col-md-4">
-					<form:label path="user_middle_name">Middle Name:</form:label>
-					<form:errors path="user_middle_name"/>
-					<form:input path="user_middle_name" type="text" class="form-control" name="mname"/>
-				</div>
-				<div class="col-md-6">
-					<form:label path="user_last_name">Last Name:</form:label>
-					<form:errors path="user_last_name"/>
-					<form:input path="user_last_name" type="text" class="form-control" name="lname"/>
-				</div>
-				<div class="col-md-6">
-					<form:label path="user_phone_number">Phone Number:</form:label>
-					<form:errors path="user_phone_number"/>
-					<div class="input-group felx-nowrap">
-						<span class="input-group-text">(+63)</span>
-						<form:input path="user_phone_number" type="number" class="form-control" name="phnumber"/>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<form:label path="user_email">Email:</form:label>
-					<form:errors path="user_email"/>
-					<form:input path="user_email" type="email" class="form-control" name="email"/>
-				</div>
-				<div class="col-md-6">
-					<form:label path="user_password">Password:</form:label>
-					<form:errors path="user_password"/>
-					<form:input path="user_password" type="password" class="form-control" name="pw"/>
-				</div>
-				<div class="col-md-12">
-					<form:label path="user_address">Address:</form:label>
-					<form:errors path="user_address"/>
-					<form:input path="user_address" type="text" class="form-control" name="address"/>
-				</div>
-				<div class="d-grid gap-2">
-					<input type="submit" value="Update Account" class="btn btn-primary btn-lg"/>
-				</div>
-			</form:form>
-				
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	
-	<div class="modal fade" id="applicationStatusModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered">
-	    	<div class="modal-content">
-	      		<div class="modal-body">
-	        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	        		<c:forEach items =  "${currentApplication}" var = "currentapplication">
-	        			<div class="row g-3 p-3 justify-content-center align-items-center">
-	        			<c:if test="${currentapplication.getUser_id()  == loggedUser.getUser_id()}">
-	        			<c:forEach items =  "${pets}" var = "pet">
-			        		<c:if test="${pet.getPet_id()  == currentapplication.getPet_id()}">
-			        			
-			        				<div class="col-md-6">
-				        				<img src = "${ pet.getPet_img()}" class="img-fluid">
-				        				<div class="text-center">
-					        				<h4 class="card-title">${pet.getPet_name()}</h4>
-				        				</div>
-			        				</div>
-			        			
-			        		</c:if>
-			        	</c:forEach>
-			        		<div class="col-md-6">
-		        				<label>Application ID: ${currentapplication.getApplication_id()}</label>
-					        	<label>Application Date: ${currentapplication.getApplication_date()}</label>
-					        	<label>Application Status: ${currentapplication.getApplication_status()}</label>
-			        		</div>
-				       		<hr>        		
-	        			</c:if>
-	        			</div>
-	        		</c:forEach>
-	      		</div>
-	    	</div>
-	  	</div>
-	</div>
-	
-	
-	
