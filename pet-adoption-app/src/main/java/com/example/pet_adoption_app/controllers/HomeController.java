@@ -1,5 +1,7 @@
 package com.example.pet_adoption_app.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +16,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.pet_adoption_app.models.Admin;
 import com.example.pet_adoption_app.models.Applications;
 import com.example.pet_adoption_app.models.Pets;
+import com.example.pet_adoption_app.models.UserDetails;
 import com.example.pet_adoption_app.models.Users;
 import com.example.pet_adoption_app.services.AdminServices;
 import com.example.pet_adoption_app.services.ApplicationServices;
+import com.example.pet_adoption_app.services.DetailsServices;
 import com.example.pet_adoption_app.services.PetServices;
 import com.example.pet_adoption_app.services.UserServices;
 
@@ -37,6 +41,12 @@ public class HomeController {
 	@Autowired
 	private AdminServices adService;
 	
+	@Autowired
+	private DetailsServices dService;
+	
+	public ArrayList<Users> temp = new ArrayList<Users>();
+	
+	
 	
 	
 	private void initForms(Model mv,
@@ -48,6 +58,7 @@ public class HomeController {
 		mv.addAttribute("newPet",new Pets());
 		mv.addAttribute("adoptPet", new Applications());
 		mv.addAttribute("newAdmin", new Admin());
+		mv.addAttribute("newUserDetails", new UserDetails());
 		
 		if(adService.getAll().isEmpty()) {
 			Admin admin01 = new Admin(1,"admin01","default","admin1@admin","001");
@@ -100,14 +111,20 @@ public class HomeController {
 								  HttpSession currentSession) {
 		
 		initForms(mv, currentSession);
+		
 		return "application";
 	}
 	
 	@PostMapping("/register/application")
-	public String postApplicationForm(@ModelAttribute Applications userApplication) {
+	public String postApplicationForm(@ModelAttribute UserDetails newUserDetails,
+									  Model mv,
+									  HttpSession currentSession,
+									  @ModelAttribute Users newAcc) {
 		
-		
-		return "redirect:/dashboard";
+		initForms(mv, currentSession);
+		uService.createAccount(temp.get(0));
+		dService.createDetails(newUserDetails);
+		return "redirect:/home";
 	}
 	
 	@GetMapping("/dashboard")
@@ -143,7 +160,9 @@ public class HomeController {
 								   BindingResult result,
 								   RedirectAttributes error) {
 		
-		uService.createAccount(newAcc);
+		temp.clear();
+		temp.add(newAcc);
+		System.out.println(temp.get(0).getUser_first_name());
 		
 		return "redirect:/register/application";
 	}
@@ -187,6 +206,7 @@ public class HomeController {
 		mv.addAttribute("updatePet",new Pets());
 		mv.addAttribute("users",uService.getAll());
 		mv.addAttribute("pets", pService.getAll());
+		mv.addAttribute("applications",aService.getAll());
 		return "adminDashboard";
 	}
 	
@@ -224,6 +244,13 @@ public class HomeController {
 		return "redirect:/admin/dashboard";
 	}
 	
+	@GetMapping("/admin/application")
+	public String detailsPage() {
+		
+		
+		return "UserApplicationDetails";
+	}
+	
 //	------------------------TEST PAGE-------------------------------------
 	
 	@GetMapping("/test")
@@ -233,12 +260,4 @@ public class HomeController {
 		mv.addAttribute("pets", pService.getAll());
 		return "test";
 	}
-	
-	@GetMapping("/test2")
-	public String test2Page(Model mv) {
-		return "test2";
-	}
-	
-	
-	
 }
