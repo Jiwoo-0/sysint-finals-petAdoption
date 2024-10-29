@@ -131,27 +131,12 @@
 						<tbody>
 					  		<c:forEach items="${applications }" var="ap">
 					  			<tr>
-					  				<td>${ap.application_id }</td>
-					  				<td><a href="/admin/application/${ap.user_id}">${ap.userapplicant }</a></td>
-					  				<td>${ap.pet_id }</td>
-					  				
-					  				
-				  				<%-- 	
-				  					
-				  					ikaw na dito jirow
-				  					<td>
-										<a href="" class="btn btn-warning" data-bs-target="#editPetModal${ap.application_id}" 
-										   data-bs-toggle="modal">
-										   Edit
-										</a>
-										<a href="/pet/delete/${pet.pet_id }" 
-										   class="btn btn-danger" onclick="return(confirm('Are you sure you want to delete pet ${pet.pet_id}'))">
-										   Delete
-										</a>
-									</td>
-					  			</tr> --%>
-					  			
-					  			
+					  				<c:if test="${ap.application_status == 'pending' }">
+						  				<td>${ap.application_id }</td>
+						  				<td><a href="/admin/application/${ap.user_id}/${ap.application_id}">${ap.userapplicant }</a></td>
+						  				<td>${ap.pet_id }</td>
+					  				</c:if>
+					  			</tr>
 					  		</c:forEach>
 						</tbody>
 			    	</table>

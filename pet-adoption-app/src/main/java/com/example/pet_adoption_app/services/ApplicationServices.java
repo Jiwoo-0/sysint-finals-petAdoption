@@ -21,4 +21,16 @@ public class ApplicationServices {
 	public Applications createApplication(Applications newApplication) {
 		return aRepo.save(newApplication);
 	}
+	
+	public void deleteApplication(Long id) {
+		aRepo.deleteById(id);
+	}
+	
+	public Applications getOne(Long id) {
+		return aRepo.findById(id).orElse(null);
+	}
+	
+	public Applications updateApp(Applications updatedApp) {
+		return aRepo.save(updatedApp);
+	}
 }

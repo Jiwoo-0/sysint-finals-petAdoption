@@ -82,7 +82,8 @@ public class HomeController {
 		
 		if(email.contains("@admin")) {
 			for(int i = 0; i<adService.getAll().size(); i++) {
-				System.out.println(adService.getAll().get(i).getAdmin_email());
+				System.out.println(email + " = " +adService.getAll().get(i).getAdmin_email());
+				System.out.println(password + " = " +adService.getAll().get(i).getAdmin_password());
 				if(adService.getAll().get(i).getAdmin_email().equals(email)&&
 				   adService.getAll().get(i).getAdmin_password().equals(password)) {
 					System.out.println("pumasok si admin");
@@ -252,15 +253,41 @@ public class HomeController {
 		return "UserApplicationDetails";
 	}
 	
-	@GetMapping("/admin/application/{id}")
-	public String detailsPage(@PathVariable long id, Model mv) {
+	@GetMapping("/admin/application/{user_id}/{app_id}")
+	public String detailsPage(@PathVariable long user_id,
+							  @PathVariable long app_id,
+							  Model mv,
+							  HttpSession currentSession) {
 		
-		UserDetails theDeets=dService.getOne(id);
-		Users theInfo=uService.getOne(id);
+		initForms(mv, currentSession);
+		UserDetails theDeets=dService.getOne(user_id);
+		Users theInfo=uService.getOne(user_id);
+		Applications theApp = aService.getOne(app_id);
 		mv.addAttribute("userdeets", theDeets);
 		mv.addAttribute("userinfo", theInfo);
+		mv.addAttribute("application",theApp);
 		
 		return "UserApplicationDetails";
+	}
+	
+	@GetMapping("/admin/application/reject/{app_id}")
+	public String rejectApp(@PathVariable long app_id) {
+		
+		Applications reject = aService.getOne(app_id);
+		reject.setApplication_status("rejected");
+		aService.updateApp(reject);
+		
+		return "redirect:/admin/dashboard";
+	}
+	
+	@GetMapping("/admin/application/approve/{app_id}")
+	public String approveApp(@PathVariable long app_id) {
+		
+		Applications approve = aService.getOne(app_id);
+		approve.setApplication_status("approved");
+		aService.updateApp(approve);
+		
+		return "redirect:/admin/dashboard";
 	}
 	
 //	------------------------TEST PAGE-------------------------------------

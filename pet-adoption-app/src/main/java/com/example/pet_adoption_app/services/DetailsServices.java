@@ -25,4 +25,8 @@ public class DetailsServices {
 	public UserDetails createDetails(UserDetails newDetails) {
 		return dRepo.save(newDetails);
 	}
+	
+	public void deleteDetails(long id) {
+		dRepo.deleteById(id);
+	}
 }
