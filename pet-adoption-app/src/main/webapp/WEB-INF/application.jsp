@@ -79,7 +79,7 @@
 											    		</form:select>
 											    	</div>
 											    	<div class="col-md-6">
-											    		<form:label path="q4">Will this pet be an inside or outside dog? </form:label>
+											    		<form:label path="q4">Will this pet be an inside or outside pet? </form:label>
 											    	</div>
 											    	<div class="col-md-6">
 											    		<form:select path="q4" class="form-select">
@@ -90,7 +90,7 @@
 											    		</form:select>
 											    	</div>
 											    	<div class="col-md-6">
-											    		<form:label path="q5">Is this puppy being purchased as a surprise or gift for anyone? </form:label>
+											    		<form:label path="q5">Is this pet being purchased as a surprise or gift for anyone? </form:label>
 											    	</div>
 											    	<div class="col-md-6">
 											    		<div class="input-group flex-nowrap">

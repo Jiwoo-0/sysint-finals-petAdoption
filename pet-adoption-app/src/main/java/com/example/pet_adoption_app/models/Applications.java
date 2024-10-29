@@ -22,6 +22,7 @@ public class Applications {
 	private long application_id;
 	private long user_id;
 	private long pet_id;
+	private String userapplicant;
 	private String application_status;
 	private String approval_date;
 	
@@ -47,12 +48,13 @@ public class Applications {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Applications(long application_id, long user_id, long pet_id, Date application_date,
+	public Applications(long application_id, long user_id, long pet_id, String userapplicant, Date application_date,
 			String application_status, String approval_date) {
 		super();
 		this.application_id = application_id;
 		this.user_id = user_id;
 		this.pet_id = pet_id;
+		this.userapplicant = userapplicant;
 		this.application_date = application_date;
 		this.application_status = application_status;
 		this.approval_date = approval_date;
@@ -80,6 +82,14 @@ public class Applications {
 	
 	public void setPet_id(long pet_id) {
 		this.pet_id = pet_id;
+	}
+	
+	public String getUserapplicant() {
+		return userapplicant;
+	}
+	
+	public void setUserapplicant(String userapplicant) {
+		this.userapplicant = userapplicant;
 	}
 	
 	public Date getApplication_date() {

@@ -104,6 +104,7 @@
 							</div>
 							<div class="col-md-6">
 								<form:form action="/adopt/pet" method="post" modelAttribute="adoptPet" class="row g-3 p-3">
+									<form:input path="userapplicant" type="hidden" value="${loggedUser.getUser_first_name()}"/>
 									<form:input path="user_id" type="hidden" value="${loggedUser.getUser_id()}"/>
 									<form:input path="pet_id" type="hidden" value="${pet.getPet_id()}"/>
 									<form:input path="application_status" type="hidden" value="pending"/>

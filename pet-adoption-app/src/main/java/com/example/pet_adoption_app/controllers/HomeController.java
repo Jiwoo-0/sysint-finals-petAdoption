@@ -83,13 +83,14 @@ public class HomeController {
 		if(email.contains("@admin")) {
 			for(int i = 0; i<adService.getAll().size(); i++) {
 				System.out.println(adService.getAll().get(i).getAdmin_email());
-				if(!adService.getAll().get(i).getAdmin_email().equals(email)&&
-				   !adService.getAll().get(i).getAdmin_password().equals(password)) {
-					System.out.println("di siya pumasok");
-				} else {
+				if(adService.getAll().get(i).getAdmin_email().equals(email)&&
+				   adService.getAll().get(i).getAdmin_password().equals(password)) {
 					System.out.println("pumasok si admin");
 					currentSession.setAttribute("activeAdmin", adService.getAll().get(i));
 					return "redirect:/admin/dashboard";
+					
+				} else {
+					System.out.println("di siya pumasok");
 				}
 			}
 		}
@@ -247,6 +248,17 @@ public class HomeController {
 	@GetMapping("/admin/application")
 	public String detailsPage() {
 		
+		
+		return "UserApplicationDetails";
+	}
+	
+	@GetMapping("/admin/application/{id}")
+	public String detailsPage(@PathVariable long id, Model mv) {
+		
+		UserDetails theDeets=dService.getOne(id);
+		Users theInfo=uService.getOne(id);
+		mv.addAttribute("userdeets", theDeets);
+		mv.addAttribute("userinfo", theInfo);
 		
 		return "UserApplicationDetails";
 	}

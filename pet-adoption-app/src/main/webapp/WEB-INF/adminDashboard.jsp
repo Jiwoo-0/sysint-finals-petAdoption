@@ -125,15 +125,33 @@
 								<th scope="col">#</th>
 							    <th scope="col">user</th>
 							    <th scope="col">adopting pet</th>
+							    <!-- <th scope="col">action</th> -->
 						   </tr>
 						</thead>
 						<tbody>
 					  		<c:forEach items="${applications }" var="ap">
 					  			<tr>
 					  				<td>${ap.application_id }</td>
-					  				<td>${ap.application_id }</td>
-					  				<td>${ap.application_id }</td>
-					  			</tr>
+					  				<td><a href="/admin/application/${ap.user_id}">${ap.userapplicant }</a></td>
+					  				<td>${ap.pet_id }</td>
+					  				
+					  				
+				  				<%-- 	
+				  					
+				  					ikaw na dito jirow
+				  					<td>
+										<a href="" class="btn btn-warning" data-bs-target="#editPetModal${ap.application_id}" 
+										   data-bs-toggle="modal">
+										   Edit
+										</a>
+										<a href="/pet/delete/${pet.pet_id }" 
+										   class="btn btn-danger" onclick="return(confirm('Are you sure you want to delete pet ${pet.pet_id}'))">
+										   Delete
+										</a>
+									</td>
+					  			</tr> --%>
+					  			
+					  			
 					  		</c:forEach>
 						</tbody>
 			    	</table>
